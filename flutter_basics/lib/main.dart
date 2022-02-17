@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     title: "Awesome App", //minimize title
     home: HomePage(),
   ));
@@ -32,30 +32,51 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Awesome App"),
       ),
-      body: Center(
-        child: Container(
-          padding: const EdgeInsets.all(8),
-          alignment: Alignment.center,
-          width: 100,
-          height: 100,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey,
-                  blurRadius: 5,
-                  offset: Offset(2.0, 5.0),
-                )
-              ],
-              color: Colors.teal,
-              gradient: LinearGradient(colors: [Colors.yellow, Colors.pink])),
-          child: Text(
-            "I am a box.",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Align(
+          alignment: Alignment.bottomRight,
+          child: Container(
+            color: Colors.black,
+            width: 200,
+            height: 400,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  /*
+                    .start
+                    .end
+                    .centre
+                    .sapceBetween
+                    .spaceAround
+                    .spaceEvenly
+                  */
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  /*
+                    Purai sapce na liyeako bhayera cente ma aayena
+        
+                  */
+                  children: <Widget>[
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      width: 100,
+                      height: 100,
+                      color: Colors.green,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      width: 100,
+                      height: 100,
+                      color: Colors.blue,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      width: 100,
+                      height: 100,
+                      color: Colors.red,
+                    ),
+                  ]),
             ),
           ),
         ),

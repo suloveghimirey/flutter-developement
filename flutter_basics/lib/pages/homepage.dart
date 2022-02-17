@@ -1,10 +1,14 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:flutter_basics/pages/login_page.dart';
 import 'package:http/http.dart' as http;
 import '../drawer.dart';
 import 'dart:convert';
 
+import '../utils/constants.dart';
+
 class HomePage extends StatefulWidget {
+  static const String routeName = "/home";
   const HomePage({Key? key}) : super(key: key);
 
   @override
@@ -36,6 +40,14 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
         title: Text("Awesome App"),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Constants.prefs.setBool("loggedIn", false);
+                Navigator.pushReplacementNamed(context, LoginPage.routeName);
+              },
+              icon: Icon(Icons.exit_to_app))
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

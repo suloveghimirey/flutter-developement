@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/pages/homepage.dart';
+import 'package:flutter_basics/pages/homepage_with_future_builder.dart';
 import 'package:flutter_basics/pages/login_page.dart';
 import 'package:flutter_basics/utils/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
       title: "Awesome App",
       debugShowCheckedModeBanner: false, //minimize title
       home: Constants.prefs.getBool("loggedIn") == true
-          ? HomePage()
+          ? HomePageFB()
           : LoginPage(),
       theme: ThemeData(
         primarySwatch: Colors.purple,
